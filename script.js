@@ -56,8 +56,9 @@ function calculate() {
 
 function clearDisplay() {
     clear.addEventListener('click', () => {
-        display.textContent = '';
+        display.textContent = 0;
         value = '';
+        num1, num2 = '';
     });
 }
 
