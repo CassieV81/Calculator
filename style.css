@@ -1,39 +1,86 @@
 * {
-    background-color: rgb(177, 200, 177);
+    background-color: rgb(216, 225, 216);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(39, 67, 37);
+    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
 }
 
 #calculator {
-    border: 2px red solid;
+    background-color: #5d7d65;
     position: absolute;
-    height: 400px;
-    width: 300;
-    /* display: flex;
-    flex-direction: column; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 450px;
+    width: 280px;
+    margin-top: 20px;
+    box-shadow: -1px 2px 38px 2px rgba(0,0,0,0.3),
+    -1px 5px 12px 0px rgba(0,0,0,0.22);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
 }
 
 #display {
-    border: 2px solid red;
-    height: 100px;
-    width: 250px;
+    background-color: rgb(167, 194, 185);
+    border-radius: 15px;
+    height: 90px;
+    width: 240px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45) inset;
+    justify-self: center;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 10px;
 }
 
 #buttons {
+    background-color: #5d7d65;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: row;
+    gap: 5px;
     padding: 10px;
-    border: 2px red solid;
-    height: 250px;
-    width: auto;
+    height: 300px;
+    width: 250px;
+    border-radius: 15px;
 }
+.clear, .delete {
+    grid-column: span 2;
+}
+
+.number {
+    background-color: rgb(39, 67, 37);
+    color: white;
+}
+
+.operator, .float, .delete, .equals {
+    background-color: #998000;
+    color: black;
+}
+
+.clear {
+    background-color: #991900;
+}
+
 
 #button {
-
+    font-weight: 800;
+    font-size: 20px;
     height: 50px;
     width: auto;
+    border-radius: 15px;
 }
+
