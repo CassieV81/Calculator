@@ -8,7 +8,7 @@ const del = document.querySelector('.delete');
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
-const divide = (a, b) => (a / b).toFixed(3);
+const divide = (a, b) => (a / b).toFixed(6);
 
 function operate(num1, num2, operator) {
 
@@ -35,25 +35,15 @@ let result = '';
 function populate() {
     number.forEach(number => {
         number.addEventListener('click', function (e) {
-            console.log(e.target.value);
             displayValue += e.target.value;
-            console.log(displayValue)
-            num1 = Number(num1)
-            display.innerHTML = Number(displayValue);
+            displayScreen(displayValue);
             if (op === '+' || op === '-' || op === 'x' || op === '/') {
-                num2 = displayValue;
-                num2 = Number(num2)
-                console.log(num1, op, num2)
-                display.innerHTML = Number(num2);
-                console.log(result = operate(num1, num2, op));
-                num1 = result;
-                display.innerHTML = result;
+                num2 = Number(displayValue);
+                displayScreen(num2);
+                displayScreen(operate(num1, num2, op));
             } else {
-                num1 = displayValue;
-                num1 = Number(num1)
-                console.log(num1, op, num1)
-                display.innerHTML = Number(num1);
-            }
+                num1 = Number(displayValue);
+            } 
         });
     })
 }
@@ -61,22 +51,26 @@ function populate() {
 operators.forEach(operators => {
     operators.addEventListener('click', (e) => {
         op = e.target.textContent;
-        console.log(op);
         return displayValue = '';
     });
 })
 
 function calculate() {
-
+    
     equals.addEventListener('click', () => {
-        console.log(num1, num2)
-        console.log(display.innerHTML = operate(num1, num2, op));
+    (result = operate(num1, num2, op));
+    displayScreen(result);
+    return num1 = result;
     })
+}
+
+function displayScreen(toScreen) {
+        display.innerHTML = toScreen;
 }
 
 function clearDisplay() {
     clear.addEventListener('click', () => {
-        display.textContent = "0";
+        displayScreen('0');
         displayValue = '';
         num1 = '';
         num2 = '';
@@ -86,8 +80,10 @@ function deleteValue() {
     del.addEventListener('click', () => {
         value = `${displayValue}`
         value = value.slice(0, -1);
-        displayValue = `${value}`;
-        display.innerHTML = displayValue;
+        displayValue = Number(`${value}`);
+        num1 = Number(`${value}`);
+        num2 = Number(`${value}`);
+        displayScreen(displayValue);
     });
 }
 
