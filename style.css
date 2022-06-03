@@ -37,6 +37,7 @@ h1 {
     width: 230px;
     padding: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45) inset;
+    overflow: hidden;
     justify-self: center;
     display: flex;
     justify-content: flex-end;
