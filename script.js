@@ -38,7 +38,7 @@ function populate() {
             displayValue += e.target.value;
             displayScreen(Number(displayValue));
             if (op === '+' || op === '-' || op === 'x' || op === '/') {
-                if (result !== '' && num1 === '') {
+                if (result !== '' || num1 === '') {
                     num1 = Number(result);
                 }
                 num2 = Number(displayValue);
