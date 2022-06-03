@@ -8,7 +8,7 @@ const del = document.querySelector('.delete');
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
-const divide = (a, b) => (a / b);
+const divide = (a, b) => (a / b).toFixed(3);
 
 function operate(num1, num2, operator) {
 
@@ -29,7 +29,7 @@ let displayValue = '';
 let num1 = '';
 let num2 = '';
 let op = '';
-let result = '';
+let result = ('');
 
 
 function populate() {
