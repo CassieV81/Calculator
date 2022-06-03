@@ -39,7 +39,7 @@ function populate() {
             displayScreen(displayValue);
             if (op === '+' || op === '-' || op === 'x' || op === '/') {
                 if (result !== '') {
-                    num1 = Number(result)
+                    num1 = Number(result);
                 }
                 num2 = Number(displayValue);
                 displayScreen(num2);
@@ -68,6 +68,10 @@ function calculate() {
     
     equals.addEventListener('click', () => {
     (result = operate(num1, num2, op));
+    if (result === 'Infinity') {
+        result = 'Nope!!!';
+        displayScreen(result);
+    }
     displayScreen(result);
     return num1 = result;
     })
