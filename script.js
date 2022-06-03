@@ -38,12 +38,15 @@ function populate() {
             displayValue += e.target.value;
             displayScreen(displayValue);
             if (op === '+' || op === '-' || op === 'x' || op === '/') {
+                if (result !== '') {
+                    num1 = Number(result)
+                }
                 num2 = Number(displayValue);
                 displayScreen(num2);
-                displayScreen(operate(num1, num2, op));
-            } else {
+                result = operate(num1, num2, op);
+            } else { 
                 num1 = Number(displayValue);
-            } 
+            }
         });
     })
 }
@@ -51,7 +54,13 @@ function populate() {
 operators.forEach(operators => {
     operators.addEventListener('click', (e) => {
         op = e.target.textContent;
-        return displayValue = '';
+        displayValue = Number(result);
+        if (displayValue === 0) {
+            displayScreen(num1)
+        } else {
+            displayScreen(displayValue)
+        }
+        displayValue = ''
     });
 })
 
@@ -74,6 +83,7 @@ function clearDisplay() {
         displayValue = '';
         num1 = '';
         num2 = '';
+        result = '';
     });
 }
 function deleteValue() {
