@@ -36,7 +36,7 @@ function populate() {
     number.forEach(number => {
         number.addEventListener('click', function (e) {
             displayValue += e.target.value;
-            displayScreen(displayValue);
+            displayScreen(Number(displayValue));
             if (op === '+' || op === '-' || op === 'x' || op === '/') {
                 if (result !== '') {
                     num1 = Number(result);
