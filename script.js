@@ -37,19 +37,6 @@ function populate() {
         number.addEventListener('click', function (e) {
             displayValue += e.target.value;
             displayScreen(Number(displayValue));
-<<<<<<< HEAD
-=======
-            if (op === '+' || op === '-' || op === 'x' || op === '/') {
-                if (result !== '') {
-                    num1 = Number(result);
-                }
-                num2 = Number(displayValue);
-                displayScreen(num2);
-                result = operate(num1, num2, op);
-            } else { 
-                num1 = Number(displayValue);
-            }
->>>>>>> 6b8f37abcebd6aad328f82c6b93db69071526fe8
         });
     })
 }
