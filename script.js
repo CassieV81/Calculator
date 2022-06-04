@@ -37,29 +37,28 @@ function populate() {
         number.addEventListener('click', function (e) {
             displayValue += e.target.value;
             displayScreen(Number(displayValue));
-            if (op === '+' || op === '-' || op === 'x' || op === '/') {
-                if (result !== '') {
-                    num1 = Number(result);
-                }
-                num2 = Number(displayValue);
-                displayScreen(num2);
-                result = operate(num1, num2, op);
-            } else { 
-                num1 = Number(displayValue);
-            }
         });
     })
 }
 
 operators.forEach(operators => {
     operators.addEventListener('click', (e) => {
-        op = e.target.textContent;
-        displayValue = Number(result);
-        if (displayValue === 0) {
-            displayScreen(num1)
-        } else {
-            displayScreen(displayValue)
+        if (result !== '' ) {
+            num1 = Number(result);
         }
+        if (num1 === '') {
+            num1 = Number(displayValue);
+        } else {
+            num2 = Number(displayValue);
+            if (num2 === 0) {
+                op = e.target.textContent;
+                return;
+            } else{
+                result = operate(num1, num2, op);
+            }
+            displayScreen(result);
+        }
+        op = e.target.textContent;
         displayValue = ''
     });
 })
@@ -67,14 +66,20 @@ operators.forEach(operators => {
 function calculate() {
     
     equals.addEventListener('click', () => {
-    (result = operate(num1, num2, op));
-    if (result === 'Infinity') {
-        result = 'Nope!!!';
+        if (result !== '' && displayValue !== '') {
+            num1 = Number(result);
+        }
+        num2 = Number(displayValue); 
+        result = operate(num1, num2, op);
+        if (result === 'Infinity') {
+            result = 'Nope!!!';
+            displayScreen(result);
+        }
         displayScreen(result);
-    }
-    displayScreen(result);
-    return num1 = result;
-    })
+        num1 = '';
+        num2 = '';
+        displayValue = '';
+        })
 }
 
 function displayScreen(toScreen) {
