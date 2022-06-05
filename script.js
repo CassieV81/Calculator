@@ -98,12 +98,8 @@ function clearDisplay() {
 }
 function deleteValue() {
     del.addEventListener('click', () => {
-        value = `${displayValue}`
-        value = value.slice(0, -1);
-        displayValue = Number(`${value}`);
-        num1 = Number(`${value}`);
-        num2 = Number(`${value}`);
-        displayScreen(displayValue);
+        displayValue = displayValue.slice(0, -1);
+        displayScreen(Number(displayValue));
     });
 }
 
